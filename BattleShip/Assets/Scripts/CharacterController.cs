@@ -41,7 +41,7 @@ public class CharacterController : MonoBehaviour
     {
        
         Vector3 pos = mouseLocation;
-        pos.z = 10;
+        pos.z = 18;
         pos = Camera.main.ScreenToWorldPoint(pos);
         Instantiate(Attack, pos, Quaternion.identity);
 
@@ -64,8 +64,7 @@ public class CharacterController : MonoBehaviour
 
          }*/
     }
-
-
+     
 
 
 }

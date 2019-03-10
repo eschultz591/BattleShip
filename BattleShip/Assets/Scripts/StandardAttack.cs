@@ -18,7 +18,23 @@ public class StandardAttack : MonoBehaviour
         if (destroy == true)
         {
             Destroy(gameObject);
-            Debug.Log("BANG");
         }  
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Dummy")
+        {
+            Debug.Log("HIT");
+        }
+        else
+        {
+            Debug.Log("no hit");
+        }
+        if (other.tag == "Player")
+        {
+            Debug.Log("Player hit");
+        }
+                
     }
 }
