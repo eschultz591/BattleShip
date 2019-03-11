@@ -17,7 +17,8 @@ public class CharacterController : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     #endregion
 
-
+    [SerializeField]
+    public int health = 4;
 
     void Awake()
     {
@@ -48,23 +49,23 @@ public class CharacterController : MonoBehaviour
 
 
 
-        //Vector3 mouseWorldLocation = (Camera.main.ScreenToViewportPoint(pos));
-
-
-
-        // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
 
 
         Debug.DrawRay(transform.position, pos);
         Debug.Log("You clicked: " + (pos));
-        /*  if (Physics.Raycast (ray, out hit))
-         {
-             Debug.Log(hit.collider.gameObject.name);
-
-         }*/
+        
     }
      
+    public void TakeDamage(int damage)
+    {
+        Debug.Log("oof");
+        health -= damage;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 
 }

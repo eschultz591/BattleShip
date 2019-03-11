@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class StandardAttack : MonoBehaviour
 {
-    public bool destroy = false;
-    void Start()
+    [SerializeField]
+    private int damage = 1;
+    [SerializeField]
+    private bool destroy = false;
+    [SerializeField]
+    private float attackCD = .5f;
+
+    public CharacterController characterController;
+
+    /*void Start()
     {
             destroy = false;
 
-}
+}*/
   
 
     // Update is called once per frame
@@ -26,6 +34,8 @@ public class StandardAttack : MonoBehaviour
         if (other.tag == "Dummy")
         {
             Debug.Log("HIT");
+            characterController = other.GetComponent<CharacterController>();
+            characterController.TakeDamage(damage);
         }
         else
         {
